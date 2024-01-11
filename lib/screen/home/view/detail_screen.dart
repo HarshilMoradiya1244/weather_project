@@ -45,29 +45,12 @@ class _DetailScreenState extends State<DetailScreen> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              Row(
-                                children: [
-                                   Text(
-                                    "${providerw!.weatherModel!.name}",
-                                    style: const TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  const Spacer(),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.book_outlined,
-                                        color: Colors.black,
-                                      )),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.settings_outlined,
-                                        color: Colors.black,
-                                      )),
-                                ],
-                              ),
+                              Text(
+                               "${providerw!.weatherModel!.name}",
+                               style: const TextStyle(
+                                   fontSize: 20,
+                                   fontWeight: FontWeight.bold),
+                                                                ),
                               const SizedBox(
                                 height: 30,
                               ),
@@ -91,7 +74,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                 width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(50),
-                                    border: Border.all()),
+                                    border: Border.all(),
+                                    color: Colors.white.withOpacity(0.4)
+                                ),
                                 child: Row(
                                   children: [
                                     IconButton(
@@ -114,7 +99,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                 height: MediaQuery.sizeOf(context).height * 0.12,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    border: Border.all()),
+                                    border: Border.all(),
+                                    color: Colors.white.withOpacity(0.4)
+                                ),
                                 child: const Padding(
                                   padding: EdgeInsets.all(10.0),
                                   child: SingleChildScrollView(
@@ -254,7 +241,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                 width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    border: Border.all()),
+                                    border: Border.all(),
+                                    color: Colors.white.withOpacity(0.4)
+                                ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Column(

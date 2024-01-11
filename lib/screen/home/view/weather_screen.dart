@@ -46,6 +46,30 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    "${providerw!.weatherModel!.name}",
+                                    style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const Spacer(),
+                                  IconButton(
+                                      onPressed: () {
+                                      },
+                                      icon: const Icon(
+                                        Icons.book_outlined,
+                                      )),
+                                  IconButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(context, 'setting');
+                                      },
+                                      icon: const Icon(
+                                        Icons.settings_outlined,
+                                      )),
+                                ],
+                              ),
                               SizedBox(
                                 height: 40,
                                 child: SearchBar(
@@ -57,7 +81,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     providerr!.getData();
                                   },
                                   backgroundColor: null,
-                                  shadowColor: null,
                                 ),
                               ),
                               const SizedBox(
@@ -76,7 +99,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     fontSize: 30,
                                   )),
                               const SizedBox(
-                                height: 130,
+                                height: 100,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -165,7 +188,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
-                                    border: Border.all()),
+                                    border: Border.all()
+                                ),
                                 child: Column(
                                   children: [
                                     const SizedBox(
