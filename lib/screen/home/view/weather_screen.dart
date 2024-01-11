@@ -12,6 +12,8 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
   WeatherProvider? providerr;
   WeatherProvider? providerw;
+  TextEditingController txtcity = TextEditingController();
+
 
   @override
   void initState() {
@@ -44,7 +46,20 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              const Text(" To Day Weather",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                              SizedBox(
+                                height: 40,
+                                child: SearchBar(
+                                  controller: txtcity,
+                                  leading: Icon(Icons.search_rounded),
+                                  hintText: 'Search The Location',
+                                  onSubmitted: (value) {
+                                    providerr!.city(txtcity.text);
+                                    providerr!.getData();
+                                  },
+                                  backgroundColor: null,
+                                  shadowColor: null,
+                                ),
+                              ),
                               const SizedBox(
                                 height: 35,
                               ),
@@ -56,12 +71,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     color: Colors.white),
                               ),
                               Text(
-                                  "${providerw!.weatherModel!.mainModel!.temp} K",
+                                  "${providerw!.weatherModel!.mainModel!.temp} k",
                                   style: const TextStyle(
                                     fontSize: 30,
                                   )),
                               const SizedBox(
-                                height: 150,
+                                height: 130,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -146,7 +161,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               ),
                               Container(
                                 height:
-                                    MediaQuery.sizeOf(context).height * 0.35,
+                                    MediaQuery.sizeOf(context).height * 0.39,
                                 width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
@@ -339,6 +354,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     const SizedBox(
                                       height: 20,
                                     ),
+                                    TextButton(onPressed: (){
+                                      Navigator.pushNamed(context, 'detail');
+                                    }, child: Text("More Details",style: TextStyle(color: Colors.black,fontSize: 15),))
                                   ],
                                 ),
                               )

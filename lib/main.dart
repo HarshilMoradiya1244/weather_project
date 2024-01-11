@@ -13,7 +13,6 @@ void main() {
         ),
       ],
       child: MaterialApp(
-        initialRoute: 'detail',
         debugShowCheckedModeBanner: false,
         routes: screen_routes,
       ),

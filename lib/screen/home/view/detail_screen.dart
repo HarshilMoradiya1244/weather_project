@@ -47,13 +47,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             children: [
                               Row(
                                 children: [
-                                  const Text(
-                                    " Surat",
-                                    style: TextStyle(
+                                   Text(
+                                    "${providerw!.weatherModel!.name}",
+                                    style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   IconButton(
                                       onPressed: () {},
                                       icon: const Icon(
@@ -107,12 +107,144 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 10,),
+                              const SizedBox(
+                                height: 10,
+                              ),
                               Container(
-                                height: MediaQuery.sizeOf(context).height * 0.1,
+                                height: MediaQuery.sizeOf(context).height * 0.12,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     border: Border.all()),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Text("now"),
+                                            Icon(
+                                              Icons.cloud_sharp,
+                                              color: Colors.white,
+                                            ),
+                                            Text("31°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("3:00pm"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("31°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("4:00pm"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("31°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("5:00pm"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("29°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("6:00pm"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("28°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("7:00pm"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("27°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("8:00"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("27°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("9:00"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("26°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("10:00"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("26°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("11:00"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("25°"),
+                                          ],
+                                        ),
+                                        SizedBox(width: 10,),
+                                        Column(
+                                          children: [
+                                            Text("12:00"),
+                                            Icon(
+                                              Icons.sunny,
+                                              color: Colors.orange,
+                                            ),
+                                            Text("24°"),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
                               const SizedBox(
                                 height: 15,
@@ -123,13 +255,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     border: Border.all()),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(10.0),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Column(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      Row(
+                                      const Row(
                                         children: [
                                           Text("1/10 Today"),
                                           SizedBox(
@@ -145,7 +277,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           Text("21°/30°"),
                                         ],
                                       ),
-                                      Row(
+                                      const Row(
                                         children: [
                                           Text("1/11 Tomorrow"),
                                           SizedBox(
@@ -161,7 +293,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           Text("22°/32°"),
                                         ],
                                       ),
-                                      Row(
+                                      const Row(
                                         children: [
                                           Text("1/12 Fri"),
                                           SizedBox(
@@ -177,7 +309,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           Text("22°/33°"),
                                         ],
                                       ),
-                                      Row(
+                                      const Row(
                                         children: [
                                           Text("1/13 Sat"),
                                           SizedBox(
@@ -193,7 +325,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           Text("20°/32°"),
                                         ],
                                       ),
-                                      Row(
+                                      const Row(
                                         children: [
                                           Text("1/14 Sun"),
                                           SizedBox(
@@ -209,7 +341,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           Text("17°/31°"),
                                         ],
                                       ),
-                                      Row(
+                                      const Row(
                                         children: [
                                           Text("1/15 Mon"),
                                           SizedBox(
@@ -225,7 +357,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           Text("17°/29°"),
                                         ],
                                       ),
-                                      Row(
+                                      const Row(
                                         children: [
                                           Text("1/16 Tue"),
                                           SizedBox(
@@ -241,6 +373,10 @@ class _DetailScreenState extends State<DetailScreen> {
                                           Text("17°/28°"),
                                         ],
                                       ),
+                                      TextButton(
+                                          onPressed: () {},
+                                          child: const Text(
+                                              "15-day weatger forecast",style: TextStyle(color: Colors.black,fontSize: 16),)),
                                     ],
                                   ),
                                 ),
