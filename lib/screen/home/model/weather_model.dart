@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
-
-class WeatherModel with ChangeNotifier {
+class WeatherModel {
   int? timezone, id, cod, visibility, dt;
   String? name, base;
 

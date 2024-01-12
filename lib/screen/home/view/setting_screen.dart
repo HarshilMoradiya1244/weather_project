@@ -21,7 +21,7 @@ class _SettingScreenState extends State<SettingScreen> {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  const Text("Setting",style: TextStyle(fontSize: 20,color: Colors.white),),
+                  const Text("Setting",style: TextStyle(fontSize: 20),),
                   const SizedBox(height: 15,),
                   Container(
                     height: MediaQuery.sizeOf(context).height * 0.16,

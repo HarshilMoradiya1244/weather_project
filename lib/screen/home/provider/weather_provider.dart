@@ -7,6 +7,7 @@ class WeatherProvider with ChangeNotifier{
   WeatherModel? weatherModel;
 
   String selectedCity = "surat";
+  bool isOnline = false;
 
   void city(String city){
     selectedCity= city;
@@ -16,6 +17,11 @@ class WeatherProvider with ChangeNotifier{
     ApiHelper apiHelper = ApiHelper();
     WeatherModel? user = await apiHelper.weatherApi(selectedCity);
     weatherModel = user;
+    notifyListeners();
+  }
+
+  void changeStatus(bool status){
+    isOnline = status;
     notifyListeners();
   }
 

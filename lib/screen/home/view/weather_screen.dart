@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_project/screen/home/provider/weather_provider.dart';
+import 'package:weather_project/utils/check_network.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -13,12 +14,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
   WeatherProvider? providerr;
   WeatherProvider? providerw;
   TextEditingController txtcity = TextEditingController();
-
+  NetworkConnection networkConnection = NetworkConnection();
 
   @override
   void initState() {
     super.initState();
     context.read<WeatherProvider>().getData();
+    networkConnection.checkConnection(context);
   }
 
   @override
@@ -28,7 +30,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: providerw!.weatherModel == null
+          child: providerw!.isOnline?providerw!.weatherModel == null
               ? const Center(
                   child: CircularProgressIndicator(),
                 )
@@ -56,18 +58,20 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                   ),
                                   const Spacer(),
                                   IconButton(
-                                      onPressed: () {
-                                      },
+                                      onPressed: () {},
                                       icon: const Icon(
                                         Icons.book_outlined,
+                                        color: Colors.black,
                                       )),
                                   IconButton(
-                                      onPressed: () {
-                                        Navigator.pushNamed(context, 'setting');
-                                      },
-                                      icon: const Icon(
-                                        Icons.settings_outlined,
-                                      )),
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, 'setting');
+                                    },
+                                    icon: const Icon(
+                                      Icons.settings_outlined,
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                 ],
                               ),
                               SizedBox(
@@ -188,8 +192,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 width: MediaQuery.sizeOf(context).width,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
-                                    border: Border.all()
-                                ),
+                                    border: Border.all()),
                                 child: Column(
                                   children: [
                                     const SizedBox(
@@ -218,7 +221,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                const Icon(Icons.water_drop_outlined),
+                                                const Icon(
+                                                    Icons.water_drop_outlined),
                                                 const Text("Humidity"),
                                                 Text(
                                                     "${providerw!.weatherModel!.mainModel!.humidity} %"),
@@ -378,9 +382,17 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     const SizedBox(
                                       height: 20,
                                     ),
-                                    TextButton(onPressed: (){
-                                      Navigator.pushNamed(context, 'detail');
-                                    }, child: Text("More Details",style: TextStyle(color: Colors.black,fontSize: 15),))
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, 'detail');
+                                        },
+                                        child: Text(
+                                          "More Details",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 15),
+                                        ))
                                   ],
                                 ),
                               )
@@ -390,7 +402,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       ),
                     )
                   ],
-                ),
+                ):
+              Image.asset("assets/images/network.png",height: 100,width: 100,)
         ),
       ),
     );
